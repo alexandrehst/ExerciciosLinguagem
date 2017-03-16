@@ -5,20 +5,38 @@
  */
 package Lista2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alexandre.Torres
  */
 public class Controle {
     public static void main(String[] args) {
-        Pessoa p = new Pessoa();
+        Carro ka = new Carro();
         
-        p.setNome("João");
-        p.nascer();
-        p.morrer();
-        if (!p.aniversario())
-            System.out.println("A pessoa não está viva");
+        ka.setMotor("1.6");
+        ka.ligar();
+        
+        ka.acelerar();
+        ka.acelerar();
+        ka.acelerar();
+                
+        
+        if (ka.acelerar())
+            JOptionPane.showMessageDialog(null, "A velocidade é " + ka.getVelocidade());
         else
-            System.out.println("Parabéns!");
+           JOptionPane.showMessageDialog(null, "Não consegui acelerar.");
+        
+        ka.frear();
+        ka.frear();        
+        JOptionPane.showMessageDialog(null, "A velocidade é " + ka.getVelocidade());
+
+        if (ka.desligar())
+            JOptionPane.showMessageDialog(null, "Carro desligado");
+        else
+           JOptionPane.showMessageDialog(null, "Não consegui desligar.");
+        
+        
     }
 }

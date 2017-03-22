@@ -13,30 +13,15 @@ import javax.swing.JOptionPane;
  */
 public class Controle {
     public static void main(String[] args) {
-        Carro ka = new Carro();
-        
-        ka.setMotor("1.6");
-        ka.ligar();
-        
-        ka.acelerar();
-        ka.acelerar();
-        ka.acelerar();
-                
-        
-        if (ka.acelerar())
-            JOptionPane.showMessageDialog(null, "A velocidade é " + ka.getVelocidade());
-        else
-           JOptionPane.showMessageDialog(null, "Não consegui acelerar.");
-        
-        ka.frear();
-        ka.frear();        
-        JOptionPane.showMessageDialog(null, "A velocidade é " + ka.getVelocidade());
-
-        if (ka.desligar())
-            JOptionPane.showMessageDialog(null, "Carro desligado");
-        else
-           JOptionPane.showMessageDialog(null, "Não consegui desligar.");
-        
-        
+       Professor p = new Professor();
+       Professor x = new Professor();
+       Materia m = new Materia();
+       
+       x.atribui(m);
+       
+       if (p.atribui(m))
+            System.out.println("Professor atribuído");
+       else
+            System.out.println("Matéria não disponível");
     }
 }

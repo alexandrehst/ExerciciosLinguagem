@@ -13,39 +13,24 @@ import javax.swing.JOptionPane;
  */
 public class Controle {
     public static void main(String[] args) {
-        Cidade cidade = new Cidade();
-        Endereco end = new Endereco();
-        Editora ed = new Editora();
-        Livro l = new Livro();
-
-        //, número, CEP e cidade. Uma cidade tem um Estado. 
-/*        String titulo = JOptionPane.showInputDialog("Digite o título");
-        int ano = Integer.parseInt(JOptionPane.showInputDialog("Digite o ano"));
-        int pags = Integer.parseInt(JOptionPane.showInputDialog("Digite o número de páginas"));
-        String nomeEd = JOptionPane.showInputDialog("Qual o nome da editora?");
-        String rua = JOptionPane.showInputDialog("Ela fica em qual rua?");
-        int numEndereco = Integer.parseInt(JOptionPane.showInputDialog("Em que número?"));
-        int cep  = Integer.parseInt(JOptionPane.showInputDialog("Qual o CEP?"));
-        String cid = JOptionPane.showInputDialog("Qual a cidade?");
-        String uf = JOptionPane.showInputDialog("Qual o estado?");
-  */      
-        cidade.nome = "Brasília";
-        cidade.estado = "DF";
-        end.cep = 7000000;
-        end.numero = 50;
-        end.rua = "Castanheiras";
-        end.cidade = cidade;
-        ed.nome = "Editora Independente";
-        ed.endereco = end;
-        l.titulo = "Java na marra";
-        l.numeroPags = 150;
-        l.anoPublicacao = 2015;
-        l.editora = ed;
-        
-        System.out.println( l );
+        Livro livro = new Livro("Senhor dos Anéis", new Editora("Record"), 1995, 700);
         
                
+        Estante e = new Estante(1);
+        e.guardaLivro(livro);
+        e.guardaLivro(new Livro("As duas torres", new Editora("Record"), 1996, 780));
+        e.guardaLivro(new Livro("O Retorno do Rei", new Editora("Record"), 1995, 700));
+        System.out.println(e.obtemLivros());
         
+        int opt = Integer.parseInt(JOptionPane.showInputDialog("Você quer o livro que qual posição?"));
+        
+        if (opt >= e.getLivros().size())
+            JOptionPane.showMessageDialog(null, "Posição inválida", "Erro", JOptionPane.ERROR_MESSAGE);
+        else{
+            Livro l = e.getLivros().get(opt);
+            JOptionPane.showMessageDialog(null, l);
+        }
+            
     }
     
     

@@ -13,6 +13,9 @@ class Editora {
     String nome;
     Endereco endereco;
     
+    public Editora(String nome){
+        this.nome = nome;
+    }
     public String toString(){
         return nome + " " + endereco;
     }
